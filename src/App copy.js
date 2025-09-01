@@ -1,68 +1,32 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sun, Moon, Menu, X } from "lucide-react";
+import { Sun, Moon, ExternalLink, Menu, X } from "lucide-react";
 import profileImg from "./assets/profile.jpg";
 
 const PROJECTS = [
   {
-    title: "Semester 4",
-    desc: "Web App Sevspo",
+    title: "Video YouTube Tutorial",
+    desc: "Tutorial React & Tailwind",
     source: "youtube",
-    link: "https://youtu.be/yUZKsN8Eiz8",
+    link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
   },
   {
-    title: "Semester 4",
-    desc: "Portal Karir Kampus",
-    source: "youtube",
-    link: "https://youtu.be/Tp8IGLzdvuY",
-  },
-  {
-    title: "Semester 1",
-    desc: "Mobile App Sevspo",
-    source: "youtube",
-    link: "https://youtu.be/mc_MWisHQ_E",
-  },
-  {
-    title: "Github",
-    desc: "Project Tugas",
-    source: "Github",
-    link: "https://github.com/VevaR02",
+    title: "Foto Instagram",
+    desc: "Proyek foto kreatif",
+    source: "instagram",
+    link: "https://www.instagram.com/p/CFexample/",
   },
   {
     title: "Video Instagram",
-    desc: "Editing video project",
+    desc: "Short video project",
     source: "instagram",
-    link: "https://www.instagram.com/sevspo_official/reel/CkaHZ4XrhBg/",
+    link: "https://www.instagram.com/reel/CFexample2/",
   },
   {
-    title: "Video Instagram",
-    desc: "Editing video project",
-    source: "instagram",
-    link: "https://www.instagram.com/sevspo_official/reel/Ck-WCyfPZHJ/",
-  },
-  {
-    title: "Video Instagram",
-    desc: "Editing video project",
-    source: "instagram",
-    link: "https://www.instagram.com/sevspo_official/reel/CtK2rp5NsoA/",
-  },
-  {
-    title: "Video Instagram",
-    desc: "Editing video project",
-    source: "instagram",
-    link: "https://www.instagram.com/sevspo_official/reel/CtF_Zz4JAmE/",
-  },
-  {
-    title: "Video Instagram",
-    desc: "Editing video project",
-    source: "instagram",
-    link: "https://www.instagram.com/sevspo_official/reel/CsC83slNDNM/",
-  },
-  {
-    title: "Project Drive",
-    desc: "Editing Foto & Video",
-    source: "drive",
-    link: "https://drive.google.com/drive/folders/1FKxA7fJ2dDXUfstZWHPkDP9sa7N9Y9h4?usp=sharing",
+    title: "Foto Lokal",
+    desc: "Screenshot project",
+    source: "local",
+    img: "https://images.unsplash.com/photo-1604014237744-df5d99f7aa5a?q=80&w=1200",
   },
 ];
 const SKILLS = [
@@ -153,7 +117,7 @@ export default function App() {
     <div className="bg-white text-gray-900 dark:bg-black dark:text-gray-100 transition-colors duration-500">
       {/* NAV */}
       <header className="sticky h-20 top-0 z-50 bg-white/70 dark:bg-black/70 backdrop-blur border-b border-gray-300 dark:border-gray-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex items-center justify-between">
           <a href="#home" className="font-extrabold tracking-wide text-xl">
             VEVA RAMADHAN
           </a>
@@ -168,36 +132,6 @@ export default function App() {
                 {item.name}
               </motion.a>
             ))}
-            {/* Desktop Dark Mode Toggle */}
-            <motion.button
-              onClick={() => setDarkMode(!darkMode)}
-              className="ml-4 p-2 rounded-full border border-gray-500 bg-gray-100 dark:bg-gray-800 hover:scale-110 transition"
-              whileTap={{ rotate: 90, scale: 0.9 }}
-            >
-              <AnimatePresence mode="wait" initial={false}>
-                {darkMode ? (
-                  <motion.div
-                    key="moon"
-                    initial={{ opacity: 0, rotate: -90 }}
-                    animate={{ opacity: 1, rotate: 0 }}
-                    exit={{ opacity: 0, rotate: 90 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Moon className="w-5 h-5 text-gray-300" />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="sun"
-                    initial={{ opacity: 0, rotate: 90 }}
-                    animate={{ opacity: 1, rotate: 0 }}
-                    exit={{ opacity: 0, rotate: -90 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Sun className="w-5 h-5 text-black" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.button>
           </nav>
           {/* Hamburger Mobile */}
           <div className="md:hidden flex items-center gap-2">
@@ -257,7 +191,7 @@ export default function App() {
         id="home"
         className="relative bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-900 dark:to-black"
       >
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center px-4 sm:px-6 py-10">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center px-4 sm:px-6 py-20">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -278,20 +212,6 @@ export default function App() {
             >
               <b>Bachelor’s Student | Informatics Engineering | Dev</b>.
             </motion.p>
-            <div className="mt-6 flex gap-4 flex-wrap">
-              <a
-                href="#projects"
-                className="px-5 py-3 bg-black text-white rounded hover:opacity-90 dark:bg-white dark:text-black shadow-md"
-              >
-                🚀 Lihat Portofolio
-              </a>
-              <a
-                href="#kontak"
-                className="px-5 py-3 border rounded hover:bg-gray-100 dark:hover:bg-gray-800"
-              >
-                📩 Hubungi Saya
-              </a>
-            </div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 60 }}
@@ -313,14 +233,10 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-3xl font-extrabold mb-6">Tentang Saya</h2>
           <p className="text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
-            Mahasiswa aktif Program Studi Teknik Informatika di UIN Sunan Gunung
-            Djati Bandung dengan IPK 3,77. Memiliki minat besar pada bidang
-            teknologi informasi dan pengembangan diri melalui kegiatan akademik
-            maupun non-akademik. Berpengalaman dalam spesialis konten, teknologi
-            informasi, dan aktif mengembangkan keterampilan melalui sertifikasi
-            internasional. Memiliki motivasi tinggi untuk belajar hal baru,
-            serta memberikan kontribusi positif bagi masyarakat melalui bidang
-            ilmu yang digeluti.
+            Halo! Saya Muhamad Veva Ramadhan, mahasiswa Teknik Informatika yang
+            tertarik dengan pengembangan perangkat lunak, IoT, dan sistem
+            informasi. Saya senang belajar hal baru, bekerja sama dalam tim, dan
+            mengembangkan proyek yang bermanfaat.
           </p>
         </div>
       </section>
@@ -348,7 +264,7 @@ export default function App() {
 
       {/* Projects */}
       <section id="projects" className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
-        <h2 className="text-3xl font-extrabold mb-10 text-center">Projects</h2>
+        <h2 className="text-3xl font-extrabold mb-10 text-center">Project</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {PROJECTS.map((p, i) => {
             // Tentukan thumbnail
@@ -356,30 +272,16 @@ export default function App() {
             if (p.source === "youtube" && p.link) {
               thumb = getYouTubeThumbnail(p.link);
             } else if (p.source === "instagram" && p.link) {
-              thumb =
-                "https://www.instagram.com/static/images/ico/favicon-200.png/ab6eff595bb1.png";
-            } else if (p.source === "github" && p.link) {
-              thumb = "https://cdn-icons-png.flaticon.com/512/25/25231.png";
-            } else if (p.link?.includes("drive.google.com")) {
-              thumb =
-                "https://ssl.gstatic.com/docs/doclist/images/drive_icon_32.png";
+              // Instagram: untuk demo, pakai link img placeholder
+              thumb = `https://via.placeholder.com/600x400?text=Instagram+Post`;
             }
-
-            // Tentukan kelas grid span
-            let gridClass =
-              "group relative rounded-2xl overflow-hidden shadow-lg cursor-pointer";
-            if (p.link?.includes("drive.google.com")) {
-              // full width di lg screen
-              gridClass += " lg:col-span-3";
-            }
-
             return (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.2 }}
-                className={gridClass}
+                className="group relative rounded-2xl overflow-hidden shadow-lg cursor-pointer"
               >
                 <motion.img
                   whileHover={{ scale: 1.1 }}
@@ -396,7 +298,7 @@ export default function App() {
                       href={p.link}
                       className="mt-4 px-4 py-2 bg-white text-black rounded flex items-center gap-2 hover:bg-gray-200"
                     >
-                      Detail
+                      Detail <ExternalLink size={16} />
                     </a>
                   )}
                 </div>
